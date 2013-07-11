@@ -1207,7 +1207,19 @@ void Aura::HandleAuraSpecificMods (AuraApplication const* aurApp, Unit* caster, 
                 // in official maybe there is only one icon?
                 if (target->HasAura(58039))          // Glyph of Blurred Speed
                     target->CastSpell(target, 61922, true);          // Sprint (waterwalk)
-
+                        
+            if(GetSpellProto()->Id == 2094)          
+             {
+                if (!caster)
+                   break;
+                if (caster->HasAura(91299)) // Glyph of Blind
+                {
+                    target->RemoveAurasByType(SPELL_AURA_PERIODIC_DAMAGE, 0, target->GetAura(32409));
+                    target->RemoveAurasByType(SPELL_AURA_PERIODIC_DAMAGE_PERCENT);
+                    target->RemoveAurasByType(SPELL_AURA_PERIODIC_LEECH);
+                 }
+              } 
+						
             // Deadly Momentum
             if (GetId() == 84590)
             {
