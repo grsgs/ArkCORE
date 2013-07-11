@@ -6922,6 +6922,12 @@ bool Unit::HandleDummyAuraProc (Unit *pVictim, uint32 damage, AuraEffect* trigge
             triggered_spell_id = 24406;
             break;
         }
+        // T.N.T.
+     	if (dummySpell->SpellIconID == 355)
+	{
+            triggered_spell_id = 56453;
+            break;
+	}
         // Lock and Load
         if (dummySpell->SpellIconID == 3579)
         {
